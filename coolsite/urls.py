@@ -20,6 +20,7 @@ from coolsite import settings
 from women.views import *
 from django.urls import path, include
 #hey
+#yo
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('captcha/', include('captcha.urls')),
