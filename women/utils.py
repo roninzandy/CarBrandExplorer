@@ -25,3 +25,6 @@ class DataMixin:
         if 'cat_selected' not in context:
             context['cat_selected'] = None
         return context
+
+class Pagging(DataMixin):
+    paginate_by = False

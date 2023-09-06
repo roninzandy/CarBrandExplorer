@@ -78,8 +78,20 @@ class WomenCategory(DataMixin, ListView):
 
 
 #@login_required
-def about(request):
-    return render(request, 'women/about.html', {'menu': menu, 'title': 'Немного о сайте'})
+# def about(request):
+#     return render(request, 'women/about.html', {'menu': menu, 'title': 'Немного о сайте'})
+
+class About(Pagging, ListView):
+    model = Women
+    template_name = 'women/about.html'
+    context_object_name = 'posts'
+    allow_empty = False
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title='О сайте')
+        return dict(list(context.items()) + list(c_def.items()))
+
 
 class AddPage(LoginRequiredMixin, DataMixin, CreateView):
     form_class = AddPostForm
