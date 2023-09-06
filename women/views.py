@@ -79,7 +79,7 @@ class WomenCategory(DataMixin, ListView):
 
 #@login_required
 def about(request):
-    return render(request, 'women/about.html', {'menu': menu, 'title': 'Немного о сайте'})
+    return render(request, 'women/about.html', {'menu': menu, 'title': 'О сайте'})
 
 class AddPage(LoginRequiredMixin, DataMixin, CreateView):
     form_class = AddPostForm

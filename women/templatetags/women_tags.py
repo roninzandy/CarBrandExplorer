@@ -1,5 +1,5 @@
 from django import template
-from women.models import Women, Category
+from women.models import *
 
 register = template.Library()
 

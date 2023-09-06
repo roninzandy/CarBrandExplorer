@@ -1,7 +1,6 @@
 from django.db import models
 from django.urls import reverse
 
-
 class Women(models.Model):
     title = models.CharField(max_length=255, verbose_name="Заголовок")
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
@@ -27,8 +26,6 @@ class Women(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=100, db_index=True, verbose_name="Категория")
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
-    photo = models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name="Фото", null=True)
-    content = models.TextField(blank=True, verbose_name="Текст статьи")
 
     def __str__(self):
         return self.name
